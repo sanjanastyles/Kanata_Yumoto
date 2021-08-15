@@ -1,59 +1,66 @@
 from flask import Flask,g,render_template,request,abort, redirect, url_for,session
 from flask.wrappers import Request 
 
-class User:
-    def __init__(self, id, username, password):
-        self.id = id
-        self.username = username
-        self.password = password
+# class User:
+#     def __init__(self, id, username, password):
+#         self.id = id
+#         self.username = username
+#         self.password = password
 
-    def __repr__(self):
-        return f'<User: {self.username}>'
+#     def __repr__(self):
+#         return f'<User: {self.username}>'
 
-users = []
-users.append(User(id=1, username='user1', password='password'))
-users.append(User(id=2, username='user2', password='p@ass'))
-users.append(User(id=3, username='user3', password='12345'))
+# users = []
+# users.append(User(id=1, username='user1', password='password'))
+# users.append(User(id=2, username='user2', password='p@ass'))
+# users.append(User(id=3, username='user3', password='12345'))
 
 app = Flask(__name__)
 app.secret_key = 'SomeSecretKeyThatOnlyIShouldKnow'
 
-@app.before_request
-def before_request():
-    g.user = None
+# Routes
+from user.routes import*
 
-    if 'user_id' in session:
-        user = [x for x in users if x.id == session['user_id']][0]
-        g.user = user
+# @app.before_request
+# def before_request():
+#     g.user = None
 
-@app.route('/Home',methods=['GET', 'POST'])
+    # if 'user_id' in session:
+    #     user = [x for x in users if x.id == session['user_id']][0]
+    #     g.user = user
+
+@app.route('/home',methods=['GET', 'POST'])
 def home():    
     if request.method == "POST":
         name = request.form['name']
         return redirect(url_for('welcome', name=name))
     return render_template('home.html')
 
-@app.route('/About',methods=['GET', 'POST'])
+@app.route('/about',methods=['GET', 'POST'])
 def about():
     if request.method == "POST":
         name = request.form['name']
         return redirect(url_for('welcome', name=name))
     return render_template('about.html')
 
-@app.route('/Login',methods=['GET', 'POST'])
+@app.route('/register',methods=['GET', 'POST'])
+def register():
+    return render_template('signup.html')
+
+@app.route('/login',methods=['GET', 'POST'])
 def login():
-    if request.method == "POST":
-        session.pop('user_id', None)
+    # if request.method == "POST":
+    #     session.pop('user_id', None)
 
-        username = request.form['username']
-        password = request.form['password']
+    #     username = request.form['username']
+    #     password = request.form['password']
         
-        user = [x for x in users if x.username == username][0]
-        if user and user.password == password:
-            session['user_id'] = user.id
-            return redirect(url_for('profile'))
+    #     user = [x for x in users if x.username == username][0]
+    #      if user and user.password == password:
+    #          session['user_id'] = user.id
+    #          return redirect(url_for('profile'))
 
-        return redirect(url_for('login'))
+    #     return redirect(url_for('login'))
 
     return render_template('login.html')
 
