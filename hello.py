@@ -1,22 +1,17 @@
 from flask import Flask,g,render_template,request,abort, redirect, url_for,session
 from flask.wrappers import Request 
+import pymongo
+from pymongo import MongoClient
+from pymongo import collection
 
-# class User:
-#     def __init__(self, id, username, password):
-#         self.id = id
-#         self.username = username
-#         self.password = password
 
-#     def __repr__(self):
-#         return f'<User: {self.username}>'
-
-# users = []
-# users.append(User(id=1, username='user1', password='password'))
-# users.append(User(id=2, username='user2', password='p@ass'))
-# users.append(User(id=3, username='user3', password='12345'))
 
 app = Flask(__name__)
 app.secret_key = 'SomeSecretKeyThatOnlyIShouldKnow'
+
+# Database
+cluster=MongoClient("mongodb+srv://sharplikekatana:12345@realmcluster.n5awq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+db=cluster["test"]
 
 # Routes
 from user.routes import*
