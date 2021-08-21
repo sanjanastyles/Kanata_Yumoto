@@ -1,20 +1,15 @@
 from flask import Flask,g,render_template,request,abort, redirect, url_for,session
 from flask.wrappers import Request 
-import pymongo
 from pymongo import MongoClient
-from pymongo import collection
-
 
 
 app = Flask(__name__)
 app.secret_key = 'SomeSecretKeyThatOnlyIShouldKnow'
 
 # Database
-cluster=MongoClient("mongodb+srv://sharplikekatana:12345@realmcluster.n5awq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-db=cluster["test"]
-
-# Routes
-from user.routes import*
+cluster = MongoClient("mongodb+srv://sharplikekatana:12345@realmcluster.n5awq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+db = cluster["test"]
+collection = db["test"]
 
 # @app.before_request
 # def before_request():
@@ -38,9 +33,12 @@ def about():
         return redirect(url_for('welcome', name=name))
     return render_template('about.html')
 
-@app.route('/register',methods=['GET', 'POST'])
+# Routes
+from user import routes
+@app.route('/',methods=['GET', 'POST'])
 def register():
     return render_template('signup.html')
+
 
 @app.route('/login',methods=['GET', 'POST'])
 def login():
