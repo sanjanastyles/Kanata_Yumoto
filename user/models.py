@@ -4,15 +4,14 @@ import uuid
 from hello import collection
 
 class User:
-    def signup(self):
-        print(request.form)
+    def signup(self, name, email, password):
 
         # user object
         user = {
             "_id": uuid.uuid4().hex,
-            "name": request.form.get('name'),
-            "email": request.form.get('email'),
-            "password": request.form.get('password')
+            "name": name,
+            "email": email,
+            "password": password
         }
 
         # encrypt password
