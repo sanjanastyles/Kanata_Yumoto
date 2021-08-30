@@ -1,51 +1,46 @@
-<html>
-    <link rel="stylesheet" href="../static/login.css">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <header class="top">
+    <h1><a href="home" title="Katosnap">Katosnap</a></h1>
+  </header>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+  <link rel="stylesheet" href="/static/css/signup.css">
+
 </head>
-
 <body>
-  <section class="hero is-info is-fullheight">
-    <div class="hero-body">
-      <div class="container">
-        <div class="columns is-centered">
-          <div class="column is-half">
-            <form method="POST">
-              <div class="field">
-                <label class="label">Username</label>
-                <div class="control has-icons-left has-icons-right">
-                  <input class="input" type="text" name="username" placeholder="Username">
-                  <span class="icon is-small is-left">
-                    <i class="fas fa-user"></i>
-                  </span>
-                </div>
-              </div>
-              <div class="field">
-                <label class="label">Password</label>
-                <p class="control has-icons-left">
-                  <input class="input" type="password" name="password" placeholder="Password">
-                  <span class="icon is-small is-left">
-                    <i class="fas fa-lock"></i>
-                  </span>
-                </p>
-              </div>
-              <div class="field">
-                <p class="control">
-                  <button type="submit" class="button is-success">
-                    Login
-                  </button>
-                </p>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</body>
 
+  <div class="card-wrapper">
+
+    <div class="card">
+
+      <h1 class="center">Login</h1>
+
+      <form name="login_form">
+
+        <label for="email">Email</label>
+        <input type="email" name="email" class="field" required>
+
+        <label for="password">Password</label>
+        <input type="password" name="password" class="field" required>
+
+        <p class="error error--hidden"></p>
+
+        <input type="submit" value="Login" class="btn">
+      
+      </form>
+      
+    </div>
+      
+    </div>
+  
+  </div>
+  
+  <script src="/static/js/jquery.js"></script>
+  <script src="/static/js/scripts.js"></script>
+  
+</body>
 </html>

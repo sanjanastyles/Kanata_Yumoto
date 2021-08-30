@@ -17,11 +17,11 @@ body {
   font-size: 1rem;
   margin: 0;
   background: #fff;
-  color: #222;
+  color: #6e84a4;
 }
 
 a {
-  color: #ff9697;
+  color: #2c5778;
   font-weight: 400;
   letter-spacing: 1px;
   text-decoration: none;
@@ -36,7 +36,7 @@ a {
 }
 
 a:hover, a:focus {
-  text-decoration: underline;
+  text-decoration: underline;  
 }
 
 .toggleNav {
@@ -142,7 +142,7 @@ input[type=text], input[type=email] {
 }
 
 input[type=submit] {
-  background: #222;
+  background: #6e84a4;
   border: 1px solid #222;
   color: #fff;
   cursor: pointer;

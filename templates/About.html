@@ -1,20 +1,19 @@
 <html>
-<link rel="stylesheet" href="../static/About.css">
+<link rel="stylesheet" href="../static/css/About.css">
 <title>About</title>
 <div class="wrapper">
     
   <header class="top">
-    <h1><a href="Home" title="Katosnap">Katosnap</a></h1>
+    <h1><a href="home" title="Katosnap">Katosnap</a></h1>
   </header>
 
   <nav class="flex-nav">
     <a href="" class="toggleNav"><i class="fa fa-bars"></i> Menu</a>
     <ul>
-      <li><a href="Home" title="Home">Home</a></li>
-      <li><a href="About" title="About">About</a></li>
-      <li><a href="Work" title="Work">Work</a></li>
-      <li><a href="Login" title="Login">Login</a></li>
-      <li><a href="Contact" title="Contact">Contact</a></li>
+      <li><a href="home" title="Home">Home</a></li>
+      <li><a href="about" title="About">About</a></li>
+      <li><a href="signin" title="Login">Login</a></li>
+      <li><a href="register" title="Contact">Sign Up</a></li>
     </ul>
   </nav>
 
@@ -33,7 +32,7 @@
   </section>
   <section class="details">
     <h2>Sign up today for the latest updates!</h2>
-    <form action="" class="signup" method="POST">
+    <form action="/register" class="signup" method="POST">
       <input type="text" placeholder="Your Name" name="name">
       <input type="submit" value="Sign Up">
     </form>
